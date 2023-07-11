@@ -11,10 +11,23 @@ const Add_new = () => {
   const [description, setDescription] = useState('');
   const [maxMarks, setMaxMarks] = useState('');
   const [numQuestions, setNumQuestions] = useState('');
-  
-  const  data ={ level , title , description , maxMarks , numQuestions
-  }
+  const [quizTime , setquizTime] = useState('');
+  const [quizDuration, setquizDuration] = useState('');
+  const [price , setprice] = useState(0);
 
+
+  
+  const  data ={ level , title , description , maxMarks , numQuestions , quizTime , quizDuration , price
+  }
+  const handlequizTimeChange = (event) =>{
+    setquizTime(event.target.value);
+  }
+  const handlePriceChange = (event) =>{
+    setprice(event.target.value);
+  }
+  const handlequizDuration = (event) =>{
+    setquizDuration(event.target.value);
+  }
   const handleLevelChange = (event) => {
     setLevel(event.target.value);
   };
@@ -47,6 +60,10 @@ const Add_new = () => {
           Desc: data.description,
           maxMarks: data.maxMarks,
           numQuestions: data.numQuestions,
+          price: data.price,
+          quizTime: data.quizTime,
+          quizDuration: data.quizDuration,
+          schoolId: uuidv4(),
           teacherId: uuidv4()
       });
 
@@ -83,6 +100,9 @@ const Add_new = () => {
     setDescription('');
     setMaxMarks('');
     setNumQuestions('');
+    setquizTime('');
+    setquizDuration('')
+    setprice(0);
   };
 
   return (
@@ -114,6 +134,19 @@ theme="dark"
       <div className="form-group">
         <label htmlFor="title">Title:</label>
         <input type="text" id="title" value={title} onChange={handleTitleChange} />
+      </div>
+      <div className="form-group">
+        <label htmlFor="quizTime">Quiz Time:</label>
+        <input type="text" id="quizTime" value={quizTime} onChange={handlequizTimeChange} />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="quizDuration">Quiz Duration:</label>
+        <input type="text" id="quizDuration" value={quizDuration} onChange={handlequizDuration} />
+      </div>
+      <div className="form-group">
+        <label htmlFor="price">Quiz Price:</label>
+        <input type="number" id="price" value={price} onChange={handlePriceChange} />
       </div>
       <div className="form-group">
         <label htmlFor="description">Description:</label>
