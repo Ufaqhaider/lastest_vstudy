@@ -43,7 +43,7 @@ const Add_new = () => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form className="form-container">
       <div className="form-group">
         <label htmlFor="level">Level:</label>
         <select id="level" value={level} onChange={handleLevelChange}>
@@ -69,14 +69,14 @@ const Add_new = () => {
         <label htmlFor="numQuestions">Number of Questions:</label>
         <input type="number" id="numQuestions" value={numQuestions} onChange={handleNumQuestionsChange} />
       </div> 
-      <Link to='/dashboard'>
-      <button type='submit'>
+      {/* <Link to='/dashboard'> */}
+      <button type='submit' onClick={handleSubmit}>
         <span>Add New Quiz</span>
         <svg viewBox="-5 -5 110 110" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0,0 C0,0 100,0 100,0 C100,0 100,100 100,100 C100,100 0,100 0,100 C0,100 0,0 0,0"/>
         </svg>
       </button>
-      </Link>     
+      {/* </Link>      */}
     </form>
   );
 };
