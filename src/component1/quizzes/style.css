@@ -4,7 +4,16 @@ body{
 
 
 }
-
+.price-level{
+  display: flex;
+  align-items: center;
+}
+.price{
+  font-weight: bold;
+}
+.level{
+  padding-left: 60px;
+}
 .testimonials-container {
     width: 100%;
     margin: 50px auto;
@@ -18,21 +27,23 @@ body{
     padding: 20px ;
     margin: 80px auto ;
     text-align: left;
-    width: 400px;
+    width: 412px;
+    height: 450px;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; 
 
   }
   .testimonial-tile:hover {
-    transform: scale(1.1); /* Scale up on hover */
-      cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(78, 62, 181, 0.3) 0px 18px 36px -18px inset;
+    cursor: pointer;
   }
   
   .testimonial-text {
     margin-top: 10px;
     font-size: 16px;
     line-height: 1.5;
+    margin-right: 105px;
   }
   
   .testimonial-name {
@@ -42,7 +53,20 @@ body{
 
   hr{
     border: 1px solid #950cde;
+    border: 1px solid #950cde;
+    position: absolute;
+    top: 38%;
+    width: 255px;
+
   }
+  .btn1{
+    background-color: #950cde;
+  }
+  .btn2{
+    background-color: #950cde;
+    margin-left: 22px;
+  }
+  
   
 
   .subjects{
@@ -113,13 +137,27 @@ body{
 .time{
   background-color: #d5dcff;
   padding: 2px;
-  border-radius: 7px;
+  border-radius: 19px;
+  margin-right: 116px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   
+}
+.right{
+  position: absolute;
+  left: 80%;
+  top: 16%;
+}
+.right img{
+  margin-top: 5px;
+
+}
+.right-name{
+  padding-left: 16px;
 }
 
 .card-title{
   font-weight: bold;
+  padding-right: 32px;
 }
 
 a{
@@ -144,11 +182,10 @@ a{
  }
 
 
-
  .card-footer .media{
   position: absolute; /* Set the media section as absolute */
   bottom: 7%; /* Align the media section to the bottom */
-  left: 10%; /* Align the media section to the left */
+  left: 5%; /* Align the media section to the left */
   right: 0; /* Align the media section to the right */
   display: flex;
   align-items: center;
@@ -199,6 +236,9 @@ a{
 .middle{
   display: none;
 }
+
+ 
+
 .result{
   left: 55%;
   bottom: 0;

@@ -1,0 +1,49 @@
+.circleRating {
+    position: absolute;
+    background-color: var(--black);
+    border-radius: 50%;
+    padding: 2px;
+    width: 60px;
+    left: 76%;
+    top: 24%;
+    .CircularProgressbar-text {
+        font-size: 44px;
+        font-weight: 700;
+        fill: var(--black);
+    }
+    .CircularProgressbar-trail {
+        stroke: transparent;
+    }
+}
+
+
+.circleRating .CircularProgressbar .CircularProgressbar-text {
+    fill: #3e98c7;
+    font-size: 57px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+}
+
+.widget-49-date-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #edf1fc;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+.widget-49-date-primary .widget-49-date-day {
+    color: #4e73e5;
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 1;
+}
+.widget-49-date-primary .widget-49-date-month {
+    color: #4e73e5;
+    line-height: 1;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
