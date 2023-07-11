@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-
+import { v4 as uuidv4 } from 'uuid';
+import { account , databases} from '../../appwrite/appwriteConfig';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Add_new = () => {
   const [level, setLevel] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [maxMarks, setMaxMarks] = useState('');
   const [numQuestions, setNumQuestions] = useState('');
+  
+  const  data ={ level , title , description , maxMarks , numQuestions
+  }
 
   const handleLevelChange = (event) => {
     setLevel(event.target.value);
@@ -34,6 +40,43 @@ const Add_new = () => {
 
     // Perform actions with the form data
 
+    const promise = databases.createDocument(process.env.REACT_APP_APPWRITE_VSTUDY_DATABASE_API, 
+      process.env.REACT_APP_APPWRITE_VSTUDY_DATABASE_QUIZ_COLLECTION_ID, uuidv4(), {
+          level: data.level,
+          title: data.title,
+          Desc: data.description,
+          maxMarks: data.maxMarks,
+          numQuestions: data.numQuestions,
+          teacherId: uuidv4()
+      });
+
+  promise.then(function (response) {
+    toast.success('Quiz added Successfully', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+      
+  }, function (error) {
+    toast.warn('Something went wrong please try again later', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+      
+  });
+
+
     // Reset the form after submission
     setLevel('');
     setTitle('');
@@ -43,6 +86,21 @@ const Add_new = () => {
   };
 
   return (
+    <React.Fragment>
+          <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
+
+  
     <form className="form-container">
       <div className="form-group">
         <label htmlFor="level">Level:</label>
@@ -78,6 +136,7 @@ const Add_new = () => {
       </button>
       {/* </Link>      */}
     </form>
+    </React.Fragment>
   );
 };
 
