@@ -103,6 +103,7 @@ const Add_new = () => {
     setquizTime('');
     setquizDuration('')
     setprice(0);
+    
   };
 
   return (
